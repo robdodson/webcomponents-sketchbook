@@ -1,0 +1,11 @@
+<div id="blog-post">
+  <h1>Awesome header</h1>
+  <p>Here is some really interesting paragraph content.</p>
+</div>
+
+<script>
+  console.log("Hello from the import! I'll just help myself to yr documentz.");
+  var link = document.querySelector('link[rel=import]');
+  var content = link.import.querySelector('#blog-post');
+  document.body.appendChild(content.cloneNode(true));
+</script>

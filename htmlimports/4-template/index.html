@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Basic HTML Imports</title>
+    <!-- 
+      To use HTML Imports make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+    <link rel="import" href="/imports/giphy.html">
+  </head>
+  <body>
+    <p>Hello World!</p>
+
+    <script>
+      var link = document.querySelector('link[rel=import]');
+      var template = link.import.querySelector('#giphy-template');
+      document.body.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>
