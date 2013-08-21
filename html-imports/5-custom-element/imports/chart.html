@@ -1,0 +1,46 @@
+<template id="chart-pie">
+  <canvas class="myChart" width="200" height="200"></canvas>
+</template>
+
+<script src="/lib/chart.min.js"></script>
+<script>
+  var link = document.querySelector('link[rel=import]');
+  var template = link.import.querySelector('#chart-pie');
+
+  // Make sure you extend an existing HTMLElement prototype
+  var ChartPieProto = Object.create(HTMLElement.prototype);
+
+  // Setup optional lifecycle callbacks: created, inserted, left, attributeChanged.
+  ChartPieProto.createdCallback = function() {
+    // Create a ShadowDOM to hold our template content
+    var root = this.createShadowRoot();
+    var clone = template.content.cloneNode(true);
+
+    // Create the pie chart with Chart.js
+    var data = [
+      {
+        value: 30,
+        color:"#F38630"
+      },
+      {
+        value : 50,
+        color : "#E0E4CC"
+      },
+      {
+        value : 100,
+        color : "#69D2E7"
+      }
+    ];
+
+    //Get the context of the canvas element we want to select
+    var ctx = clone.querySelector('.myChart').getContext('2d');
+    var myNewChart = new Chart(ctx).Pie(data);
+
+    // Add the template content + chart to our Shadow DOM
+    root.appendChild(clone);
+  };
+
+  var ChartPie = document.register('chart-pie', {prototype: ChartPieProto});
+  //var chartPie = new ChartPie();
+  //var chartPie = document.createElement('chart-pie');
+</script>
