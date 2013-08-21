@@ -7,13 +7,14 @@
   </head>
   <body>
     <p>Hello World!</p>
-
+    
+    <!-- Include polymer.js -->
     <script src="/bower_components/polymer/polymer.min.js"></script>
+
+    <!-- Listen for the HTMLImportsLoaded event -->
     <script>
       window.addEventListener('HTMLImportsLoaded', function() {
-        console.log('imports loaded!');
         var link = document.querySelector('link[rel=import]');
-        console.log(link.import); // take a look at the document
         var content = link.import.querySelector('#blog-post');
         document.body.appendChild(content.cloneNode(true));
       });
