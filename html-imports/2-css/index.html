@@ -14,11 +14,11 @@
     <link rel="import" href="/imports/blog-post.html">
   </head>
   <body>
+    <h1>Boring header</h1>
     <p>Hello World!</p>
 
     <script>
       var link = document.querySelector('link[rel=import]');
-      console.log(link.import); // take a look at the document
       var content = link.import.querySelector('#blog-post');
       document.body.appendChild(content.cloneNode(true));
     </script>
