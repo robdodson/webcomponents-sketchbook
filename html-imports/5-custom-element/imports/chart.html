@@ -4,8 +4,13 @@
 
 <script src="/lib/chart.min.js"></script>
 <script>
-  var link = document.querySelector('link[rel=import]');
-  var template = link.import.querySelector('#chart-pie');
+  // thisDoc refers to the "importee", which is chart.html
+  var thisDoc = document.currentScript.ownerDocument;
+
+  // thatDoc refers to the "importer", which is index.html
+  var thatDoc = document;
+
+  var template = thisDoc.querySelector('#chart-pie');
 
   // Make sure you extend an existing HTMLElement prototype
   var ChartPieProto = Object.create(HTMLElement.prototype);
@@ -42,7 +47,7 @@
     root.appendChild(clone);
   };
 
-  var ChartPie = document.register('chart-pie', {prototype: ChartPieProto});
+  var ChartPie = thatDoc.register('chart-pie', {prototype: ChartPieProto});
   //var chartPie = new ChartPie();
   //var chartPie = document.createElement('chart-pie');
 </script>

@@ -16,7 +16,9 @@
       }
     ];
 
-    //Get the context of the canvas element we want to select
+    // Get the context of the canvas element we want to select
+    // It's ok to use document here because this script block won't
+    // activate till it's added to the page.
     var ctx = document.getElementById("myChart").getContext("2d");
     var myNewChart = new Chart(ctx).Pie(data);
   </script>
@@ -24,7 +26,14 @@
 
 <script src="/lib/chart.min.js"></script>
 <script>
-  var link = document.querySelector('link[rel=import]');
-  var template = link.import.querySelector('#chart-pie');
-  document.body.appendChild(template.content.cloneNode(true));
+  // thisDoc refers to the "importee", which is chart.html
+  var thisDoc = document.currentScript.ownerDocument;
+
+  // thatDoc refers to the "importer", which is index.html
+  var thatDoc = document;
+
+  // grab the contents of the #chart-pie from this document
+  // and append it to the importing document.
+  var template = thisDoc.querySelector("#chart-pie");
+  thatDoc.body.appendChild(template.content.cloneNode(true));
 </script>

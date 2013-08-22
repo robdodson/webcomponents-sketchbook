@@ -21,8 +21,14 @@
 </div>
 
 <script>
-  console.log("Hello from the import! I'll just help myself to yr documentz.");
-  var link = document.querySelector('link[rel=import]');
-  var content = link.import.querySelector('#blog-post');
-  document.body.appendChild(content.cloneNode(true));
+  // thisDoc refers to the "importee", which is blog-post.html
+  var thisDoc = document.currentScript.ownerDocument;
+
+  // thatDoc refers to the "importer", which is index.html
+  var thatDoc = document;
+
+  // grab the contents of the #blog-post from this document
+  // and append it to the importing document.
+  var content = thisDoc.querySelector("#blog-post");
+  thatDoc.body.appendChild(content.cloneNode(true));
 </script>

@@ -18,7 +18,6 @@
 
     <script>
       var link = document.querySelector('link[rel=import]');
-      console.log(link.import); // take a look at the document
       var content = link.import.querySelector('#blog-post');
       document.body.appendChild(content.cloneNode(true));
     </script>
