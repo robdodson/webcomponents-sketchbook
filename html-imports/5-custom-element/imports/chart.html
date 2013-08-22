@@ -10,7 +10,9 @@
   // Make sure you extend an existing HTMLElement prototype
   var ChartPieProto = Object.create(HTMLElement.prototype);
 
-  // Setup optional lifecycle callbacks: created, inserted, left, attributeChanged.
+  // Setup optional lifecycle callbacks: createdCallback,
+  // enteredDocumentCallback, leftDocumentCallback and
+  // attributeChangedCallback
   ChartPieProto.createdCallback = function() {
     // Create a ShadowDOM to hold our template content
     var root = this.createShadowRoot();
