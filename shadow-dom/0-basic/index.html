@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Basic</title>
+  </head>
+  <body>
+    <div class="widget">Hello, world!</div>
+    <script>
+      var host = document.querySelector('.widget');
+      var root = host.webkitCreateShadowRoot();
+      var heading = document.createElement('h1');
+      heading.textContent = 'I am inside yr divs!';
+      root.appendChild(heading);
+    </script>
+  </body>
+</html>
