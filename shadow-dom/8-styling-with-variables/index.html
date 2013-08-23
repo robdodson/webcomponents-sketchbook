@@ -5,17 +5,13 @@
     <title>Shadow DOM Basic</title>
 
     <style>
-      .sign-up::part(username),
-      .sign-up::part(password) {
-        font-size: 30px;
-        border-radius: 5px;
-        border: 2px solid red;
+      .sign-up {
+        var-type-size: 24px;
       }
 
-      .sign-up::part(btn) {
-        font-size: 24px;
-        background: lightgreen;
-        color: green;
+      .sign-up::part(username),
+      .sign-up::part(password) {
+        var-borders: 2px solid red;
       }
     </style>
   </head>
@@ -28,6 +24,17 @@
     <div class="sign-up"></div>
 
     <template class="sign-up-template">
+      <style>
+        .sign-up::part(username),
+        .sign-up::part(password) {
+          font-size: var(type-size);
+          border: var(borders);
+        }
+
+        .sign-up::part(btn) {
+          font-size: var(type-size);
+        }
+      </style>
       <div>
         <input type="text" id="username" part="username" placeholder="username">
       </div>
