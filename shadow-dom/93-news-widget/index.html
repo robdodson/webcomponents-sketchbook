@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Selects</title>
+  </head>
+  <body>
+    <!-- 
+    This examples comes from the W3C Shadow DOM Spec
+    https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html#shadow-dom-example
+     -->
+
+    <ul class="stories">
+      <li><a href="//example.com/stories/1">A story</a></li>
+      <li><a href="//example.com/stories/2">Another story</a></li>
+      <li class="breaking"><a href="//example.com/stories/3">A Breaking Story!</a></li>
+      <li><a href="//example.com/stories/4">Yet another story</a></li>
+      <li><a href="//example.com/stories/4">Boring Story</a></li>
+      <li class="breaking"><a href="//example.com/stories/5">Another Breaking Story!</a></li>
+    </ul>
+    
+    <template class="stories-template">
+      <style>
+        div.breaking {
+          color: Red;
+          font-size: 20px;
+          border: 1px dashed Purple;
+        }
+        div.other {
+          padding: 2px 0 0 0;
+          border: 1px solid Cyan;
+        }
+      </style>
+
+      <div class="breaking">
+        <ul>
+          <content select=".breaking"></content> <!-- insertion point for breaking news -->
+        </ul>
+      </div>
+      <div class="other">
+        <ul>
+          <content></content> <!-- insertion point for the rest of the news -->
+        </ul>
+      </div>
+    </template>
+
+    <script>
+      var host = document.querySelector('.stories');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('.stories-template');
+      root.appendChild(template.content);
+      template.remove();
+    </script>
+  </body>
+</html>

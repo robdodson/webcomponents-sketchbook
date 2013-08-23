@@ -8,7 +8,7 @@
     <div class="widget">Hello, world!</div>
     <script>
       var host = document.querySelector('.widget');
-      var root = host.webkitCreateShadowRoot();
+      var root = host.createShadowRoot();
       var heading = document.createElement('h1');
       heading.textContent = 'I am inside yr divs!';
       root.appendChild(heading);

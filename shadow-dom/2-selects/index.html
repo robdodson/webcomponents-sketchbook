@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Selects</title>
+  </head>
+  <body>
+    <div class="address">
+      <p class="first-name">Rob</p>
+      <p class="last-name">Dodson</p>
+      <p class="city">San Francisco</p>
+      <p class="state">California</p>
+    </div>
+    <template class="address-template">
+      <table>
+        <thead>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>City</td>
+            <td>State</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <content select=".first-name"></content>
+            </td>
+            <td>
+              <content select=".last-name"></content>
+            </td>
+            <td>
+              <content select=".city"></content>
+            </td>
+            <td>
+              <content select=".state"></content>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+
+    <script>
+      var host = document.querySelector('.address');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('.address-template');
+      root.appendChild(template.content);
+    </script>
+  </body>
+</html>

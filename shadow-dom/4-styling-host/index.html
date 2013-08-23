@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Basic</title>
+  </head>
+  <body>
+    <!-- 
+    This examples comes from the HTML5 Rocks Shadow DOM 201 article
+    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
+     -->
+    
+    <!--
+    rules wrapped in a @host have higher specificity than any selector
+    in the parent page, but a lower specificity than a style attribute
+    defined on the host element. Note our style for font-size of 10px
+    beats out the @host style of 24px
+    -->
+    <button class="bigger" style="font-size: 10px;">My Button</button>
+    <script>
+      var host = document.querySelector('button');
+      var root = host.createShadowRoot();
+      root.innerHTML = '<style>' +
+                       '@host {' +
+                       '  button { text-transform: uppercase; font-size: 24px; }' +
+                       '  .bigger { padding: 20px; }' +
+                       '} ' +
+                       '</style>' +
+                       '<content select=""></content>';
+    </script>
+  </body>
+</html>

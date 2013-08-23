@@ -10,44 +10,51 @@
     http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/
      -->
 
-    <style>
-      .outer {
-        border: 2px solid brown;
-        border-radius: 1em;
-        background: red;
-        font-size: 20pt;
-        width: 12em;
-        height: 7em;
-        text-align: center;
-      }
-      .boilerplate {
-        color: white;
-        font-family: sans-serif;
-        padding: 0.5em;
-      }
-      .name {
-        color: black;
-        background: white;
-        font-family: "Marker Felt", cursive;
-        font-size: 45pt;
-        padding-top: 0.2em;
-      }
-    </style>
-    <div class="outer">
-      <div class="boilerplate">
-        Hi! My name is
-      </div>
-      <div class="name">
-        Bob
-      </div>
+    <div id="name-tag">
+      Bob
     </div>
+
+    <template id="name-tag-template">
+      <style>
+        .outer {
+          border: 2px solid brown;
+          border-radius: 1em;
+          background: red;
+          font-size: 20pt;
+          width: 12em;
+          height: 7em;
+          text-align: center;
+        }
+        .boilerplate {
+          color: white;
+          font-family: sans-serif;
+          padding: 0.5em;
+        }
+        .name {
+          color: black;
+          background: white;
+          font-family: "Marker Felt", cursive;
+          font-size: 45pt;
+          padding-top: 0.2em;
+        }
+      </style>
+
+      <div class="outer">
+        <div class="boilerplate">
+          Hi! My name is
+        </div>
+        <div class="name">
+          <content></content>
+        </div>
+      </div>
+    </template>
     
     <script>
-      // var host = document.querySelector('.widget');
-      // var root = host.webkitCreateShadowRoot();
-      // var heading = document.createElement('h1');
-      // heading.textContent = 'I am inside yr divs!';
-      // root.appendChild(heading);
+      var host = document.querySelector('#name-tag');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('#name-tag-template');
+      root.appendChild(template.content.cloneNode(true));
+      template.remove();
     </script>
   </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Selects</title>
+  </head>
+  <body>
+    <!-- 
+    This examples comes from the W3C Shadow DOM Spec
+    https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html#shadow-dom-example
+     -->
+ 
+    <ul class="stories">
+      <li><a href="//example.com/stories/1">A story</a></li>
+      <li><a href="//example.com/stories/2">Another story</a></li>
+      <li class="breaking"><a href="//example.com/stories/3">A Breaking Story!</a></li>
+      <li><a href="//example.com/stories/4">Yet another story</a></li>
+      <li><a href="//example.com/stories/4">Boring Story</a></li>
+      <li class="breaking"><a href="//example.com/stories/5">Another Breaking Story!</a></li>
+    </ul>
+    
+    <script>
+      function createStoryGroup(className, contentSelector) {
+        var group = document.createElement('div');
+        group.className = className;
+        group.innerHTML = '<ul><content select="' + contentSelector + '"></content></ul>';
+        return group;
+      }
+
+      function createStyle() {
+        var style = document.createElement('style');
+        style.textContent = 'div.breaking { color: Red;font-size: 20px; border: 1px dashed Purple; }' +
+                'div.other { padding: 2px 0 0 0; border: 1px solid Cyan; }';
+        return style;
+      }
+
+      function makeShadowTree(storyList) {
+        var root = storyList.createShadowRoot();
+        root.appendChild(createStyle());
+        root.appendChild(createStoryGroup('breaking', '.breaking'));
+        root.appendChild(createStoryGroup('other', ''));
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        [].forEach.call(document.querySelectorAll('ul.stories'), makeShadowTree);
+      });
+    </script>
+  </body>
+</html>
