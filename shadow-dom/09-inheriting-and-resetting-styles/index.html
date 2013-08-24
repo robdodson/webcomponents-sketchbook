@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Inheriting and Resetting Styles</title>
+    <style>
+      .article {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      h2 {
+        text-decoration: underline;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    This examples comes from the HTML5 Rocks Shadow DOM 201 article
+    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
+     -->
+    
+    <div class="article">Some interesting article content</div>
+
+    <template class="article-template">
+      <h2>An Article Header</h2>
+      <p><content select=""></content></p>
+    </template>
+
+    <script>
+      var host = document.querySelector('.article');
+      var root = host.createShadowRoot();
+      root.resetStyleInheritance = false;
+      root.applyAuthorStyles = true;
+      // Note that you can also reset styles on a per <shadow> or
+      // per <content> basis
+      // http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/#toc-shadow-resetstyles
+      var template = document.querySelector('.article-template');
+      root.appendChild(template.content.cloneNode(true));
+      template.remove();
+    </script>
+  </body>
+</html>
