@@ -9,7 +9,15 @@
     <script>
       var host = document.querySelector('.widget');
       var root = host.createShadowRoot();
-      root.textContent = 'Im inside yr div!';
+      
+      var header = document.createElement('h1');
+      header.textContent = 'A Wild Shadow Header Appeared!';
+      
+      var paragraph = document.createElement('p');
+      paragraph.textContent = 'Some sneaky shadow text';
+
+      root.appendChild(header);
+      root.appendChild(paragraph);
     </script>
   </body>
 </html>

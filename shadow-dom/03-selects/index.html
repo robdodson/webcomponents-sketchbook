@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Selects</title>
+  </head>
+  <body>
+    <div class="bio">
+      <span class="first-name">Rob</span>
+      <span class="last-name">Dodson</span>
+      <span class="city">San Francisco</span>
+      <span class="state">California</span>
+      <p>
+        I specialize in Front-End development (HTML/CSS/JavaScript) with a touch of Node and Ruby sprinkled in. I’m also a writer and occasional daily blogger. Though I’m originally from the South, these days I live and work in beautiful San Francisco, California.
+      </p>
+    </div>
+
+    <template class="bio-template">
+      <dl>
+        <dt>Last Name</dt>
+        <dd><content select=".last-name"></content></dd>
+        <dt>First Name</dt>
+        <dd><content select=".first-name"></content></dd>
+        <dt>City</dt>
+        <dd><content select=".city"></content></dd>
+        <dt>State</dt>
+        <dd><content select=".state"></content></dd>
+      </dl>
+      <p><content select=""></content></p>
+    </template>
+
+    <script>
+      var host = document.querySelector('.bio');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('.bio-template');
+      root.appendChild(template.content);
+    </script>
+  </body>
+</html>

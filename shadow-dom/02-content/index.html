@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Selects</title>
+  </head>
+  <body>
+    <div class="pokemon">
+      Jigglypuff
+    </div>
+
+    <template class="pokemon-template">
+      <h1>A Wild <content></content> Appeared!</h1>
+    </template>
+
+    <script>
+      var host = document.querySelector('.pokemon');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('.pokemon-template');
+      root.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>
