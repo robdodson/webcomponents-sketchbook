@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Theming</title>
+  </head>
+  <body>
+    <div class="serious">
+      <p class="serious-widget">
+        I am super serious, guys.
+      </p>
+    </div>
+
+    <div class="playful">
+      <p class="playful-widget">
+        Pretty little clouds...
+      </p>
+    </div>
+
+    <template class="widget-template">
+      <style>
+        :host(.serious) {
+          width: 200px;
+          height: 50px;
+          padding: 50px;
+          font-family: monospace;
+          font-weight: bold;
+          font-size: 24px;
+          color: black;
+          background: tomato;
+        }
+
+        :host(.playful) {
+          width: 200px;
+          height: 50px;
+          padding: 50px;
+          font-family: cursive;
+          font-size: 24px;
+          color: white;
+          background: deepskyblue;
+        }
+      </style>
+      <content></content>
+    </template>
+    <script>
+      var root1 = document.querySelector('.serious-widget').createShadowRoot();
+      var root2 = document.querySelector('.playful-widget').createShadowRoot();
+      var template = document.querySelector('.widget-template');
+      root1.appendChild(template.content.cloneNode(true));
+      root2.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>

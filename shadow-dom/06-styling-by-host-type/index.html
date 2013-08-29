@@ -2,14 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Shadow DOM Basic</title>
+    <title>Shadow DOM Styling By Host Type</title>
   </head>
   <body>
-    <!-- 
-    This examples comes from the HTML5 Rocks Shadow DOM 201 article
-    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
-     -->
-    
     <p>My Paragraph</p>
     <div>My Div</div>
     <button>My Button</button>
@@ -17,22 +12,20 @@
     <!-- Our template -->
     <template class="shadow-template">
       <style>
-        @host {
-          p {
-            color: blue;
-          }
+        p:host {
+          color: blue;
+        }
 
-          div {
-            color: green;
-          }
+        div:host {
+          color: green;
+        }
 
-          button {
-            color: red;
-          }
+        button:host {
+          color: red;
+        }
 
-          * {
-            font-size: 24px;
-          }
+        *:host {
+          font-size: 24px;
         }
       </style>
       <content select=""></content>
@@ -48,7 +41,7 @@
       var template = document.querySelector('.shadow-template');
 
       // Stamp the template into each shadow root. Notice how
-      // the different @host styles affect the appearance
+      // the different :host styles affect the appearance
       root1.appendChild(template.content.cloneNode(true));
       root2.appendChild(template.content.cloneNode(true));
       root3.appendChild(template.content.cloneNode(true));

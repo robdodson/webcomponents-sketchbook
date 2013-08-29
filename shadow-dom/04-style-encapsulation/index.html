@@ -2,22 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Shadow DOM Basic</title>
+    <title>Shadow DOM Style Encapsulation</title>
   </head>
   <body>
-    <!-- 
-    This examples comes from the HTML5 Rocks Shadow DOM 201 article
-    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
-     -->
+    <style>
+      button {
+        font-size: 18px;
+        font-family: cursive;
+      }
+    </style>
+    <button>I'm a regular button</button>
+    <div></div>
 
-    <div>
-      <h3>Host Title</h3>
-    </div>
     <script>
       var host = document.querySelector('div');
       var root = host.createShadowRoot();
-      root.innerHTML = '<style>h3 { color: red; } </style>' +
-                       '<h3>Shadow DOM Title</h3>'
+      root.innerHTML = '<style>button { font-size: 24px; color: blue; } </style>' +
+                       '<button>I\'m a shadow button</button>'
     </script>
   </body>
 </html>

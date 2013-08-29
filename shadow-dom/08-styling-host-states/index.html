@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Host States</title>
+  </head>
+  <body>
+    <button>My Button</button>
+
+    <template class="button-template">
+      <style>
+        *:host {
+          font-size: 18px;
+          cursor: pointer;
+        }
+        *:host:hover {
+          border: 2px solid green;
+        }
+      </style>
+      <content></content>
+    </template>
+    <script>
+      var host = document.querySelector('button');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('.button-template');
+      root.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>
