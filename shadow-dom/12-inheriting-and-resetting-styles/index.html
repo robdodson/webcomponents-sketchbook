@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Inheriting and Resetting Styles</title>
     <style>
-      .article {
+      body {
         font-family: Helvetica, Arial, sans-serif;
       }
 
@@ -19,22 +19,21 @@
     </style>
   </head>
   <body>
-    <!-- 
-    This examples comes from the HTML5 Rocks Shadow DOM 201 article
-    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
-     -->
-    
+
+    <h2>This h2 is NOT in the shadow DOM</h2>
+    <p>Neither is this paragraph</p>
+
     <div class="article">Some interesting article content</div>
 
     <template class="article-template">
       <h2>An Article Header</h2>
-      <p><content select=""></content></p>
+      <p><content></content></p>
     </template>
 
     <script>
       var host = document.querySelector('.article');
       var root = host.createShadowRoot();
-      root.resetStyleInheritance = false;
+      // root.resetStyleInheritance = true;
       root.applyAuthorStyles = true;
       // Note that you can also reset styles on a per <shadow> or
       // per <content> basis

@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Shadow DOM Basic</title>
+    <title>Shadow DOM Distributed Nodes</title>
   </head>
   <body>
-    <!-- 
-    This examples comes from the HTML5 Rocks Shadow DOM 201 article
-    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-201/
-     -->
-    
     <div class="widget">
-      <button class="btn">Host</button>
+      <button>Distributed Awesomesauce</button>
     </div>
 
     <template class="widget-template">
       <style>
-        content::-webkit-distributed(button) {
-          font-size: 24px;
+        ::content > button {
+          font-size: 18px;
+          color: white;
+          background: tomato;
+          border-radius: 10px;
+          border: none;
+          padding: 10px;
         }
       </style>
 
@@ -27,8 +27,6 @@
     <script>
       var host = document.querySelector('.widget');
       var root = host.createShadowRoot();
-      // root.applyAuthorStyles = false;
-      // root.resetStyleInheritance = false;
       var template = document.querySelector('.widget-template');
       root.appendChild(template.content.cloneNode(true));
       template.remove();
