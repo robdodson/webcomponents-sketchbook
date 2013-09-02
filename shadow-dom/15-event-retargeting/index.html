@@ -5,11 +5,6 @@
     <title>Shadow DOM Basic</title>
   </head>
   <body>
-    <!-- 
-    This example is from HTML5 Rocks Shadow DOM 301
-    http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom-301/#toc-events
-    -->
-    
     <div class="my-host">
       
     </div>
@@ -17,9 +12,7 @@
     <script>
       var host = document.querySelector('.widget');
       var root = host.createShadowRoot();
-      var heading = document.createElement('h1');
-      heading.textContent = 'I am inside yr divs!';
-      root.appendChild(heading);
+
     </script>
   </body>
 </html>
