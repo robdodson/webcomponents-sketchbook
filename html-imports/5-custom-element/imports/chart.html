@@ -3,7 +3,11 @@
 </template>
 
 <script>
-  (function (document, undefined) {
+  (function (window, document, undefined) {
+    // Grab an example namespace. We'll attach our
+    // constructor to this at the end
+    var namespace = window.namespace || {};
+
     // thisDoc refers to the "importee", which is chart.html
     var thisDoc = document.currentScript.ownerDocument;
 
@@ -39,7 +43,7 @@
         }
       ];
 
-      //Get the context of the canvas element we want to select
+      // Get the context of the canvas element we want to select
       var ctx = clone.querySelector('.myChart').getContext('2d');
       var myNewChart = new Chart(ctx).Pie(data);
 
@@ -48,7 +52,15 @@
     };
 
     var ChartPie = thatDoc.register('chart-pie', {prototype: ChartPieProto});
-    //var chartPie = new ChartPie();
-    //var chartPie = document.createElement('chart-pie');
-  }(document));
+    
+    // Now that the element is registered it can be instantiated
+    // in a few ways:
+
+    // ex1: var chartPie = new ChartPie();
+    // ex2: var chartPie = document.createElement('chart-pie');
+    // ex3: <chart-pie></chart-pie>
+
+    // export the ChartPie constructor so others can use it
+    namespace.ChartPie = ChartPie;
+  }(window, document));
 </script>
