@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM JavaScript Scope</title>
+  </head>
+  <body>
+    <div id="host"></div>
+    <template>
+      <h1>Hello World!</h1>
+      <script>
+      (function () {
+        var foo = 'bar';
+      }());
+      </script>
+    </template>
+    <script>
+      var host = document.querySelector('#host');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('template');
+      root.appendChild(template.content.cloneNode(true));
+      console.log('window.foo = ' + window.foo);
+    </script>
+  </body>
+</html>

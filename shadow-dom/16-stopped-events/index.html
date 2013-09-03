@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Shadow DOM Stopped Events</title>
+  </head>
+  <body>
+    <input id="normal-text" type="text" value="I'm normal text">
+    
+    <div id="host">
+      <input id="distributed-text" type="text" value="I'm distributed text">
+    </div>
+    
+    <template>
+      <div>
+        <content></content>
+      </div>
+      <div>
+        <input id="shadow-text" type="text" value="I'm shadow text">
+      </div>
+    </template>
+    <script>
+      var host = document.querySelector('#host');
+      var root = host.createShadowRoot();
+      var template = document.querySelector('template');
+      root.appendChild(template.content.cloneNode(true));
+
+      document.addEventListener('select', function(e) {
+        console.log(e.target.id + ' text selected!');
+      });
+    </script>
+  </body>
+</html>
