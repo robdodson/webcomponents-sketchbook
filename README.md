@@ -11,3 +11,4 @@ This sketchbook is meant to be a place to progressively experiment with Web Comp
 - [Shadow DOM: The Basics](http://robdodson.me/blog/2013/08/27/shadow-dom-the-basics/)
 - [Shadow DOM: Styles](http://robdodson.me/blog/2013/08/28/shadow-dom-styles/)
 - [Shadow DOM: Styles (cont.)](http://robdodson.me/blog/2013/08/29/shadow-dom-styles-cont-dot/)
+- [Shadow DOM: JavaScript](http://robdodson.me/blog/2013/09/02/shadow-dom-javascript/)
