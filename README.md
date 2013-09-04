@@ -1,7 +1,7 @@
 # Web Components Sketchbook
 This sketchbook is meant to be a place to progressively experiment with Web Components. Many examples build upon one another and are coupled with blog posts.
 
-Many thanks go to Eric Bidelman and all the work he's done to help educate folks about Web Components. [Checkout his resource guide](https://gist.github.com/ebidel/6314025) and be sure to read [all of his HTML5 Rocks posts.](https://www.google.com/#q=(site%3Ahtml5rocks.com+inurl%3Awebcomponents)+OR+(site%3Aupdates.html5rocks.com+webcomponents))
+Many thanks go to Eric Bidelman and all the work he's done to help educate folks about Web Components. [Checkout his resource guide](https://gist.github.com/ebidel/6314025) and be sure to read [all of his HTML5 Rocks posts.](http://www.html5rocks.com/en/tutorials/#webcomponents)
 
 ## Blog Posts
 
