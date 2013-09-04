@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Templates Inert Script</title>
+  </head>
+  <body>
+
+    <button onclick="appendTemplate();">Append Template</button>
+
+    <template>
+      <h1>Script Wizardry</h1>
+      <img src="http://media0.giphy.com/media/11a9K7FLvTD9Kw/original.gif">
+      <script>alert('this script is inside the template!');</script>
+    </template>
+
+    <script>
+    function appendTemplate() {
+      var template = document.querySelector('template');
+      document.body.appendChild(template.content.cloneNode(true));
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template Import</title>
+    <!-- 
+      To use HTML Imports make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+    <link rel="import" href="./templates/my-template.html">
+  </head>
+  <body>
+    <script>
+      // Select the link tag that ends with 'my-template.html'
+      var link = document.querySelector('link[href$="my-template.html"]');
+      var template = link.import.querySelector('#dancing');
+      document.body.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>

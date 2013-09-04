@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Elements Basic</title>
+    <!-- 
+      To use Custom Elements make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+  </head>
+  <body>
+
+    <button is="mega-button">I'm a mega button!</button>
+
+    <template id="widget-template">
+      <div>
+        <h1>I am a widget!</h1>
+      </div>
+    </template>
+
+    <script>
+    (function (window, document, undefined) {
+      // Register the custom element with the document
+      var MegaButton = document.register('mega-button', {
+        prototype: Object.create(HTMLButtonElement.prototype)
+      });
+      
+      // Export the constructor so others can use it
+      window.MegaButton = MegaButton;
+
+      // Now that the element is registered it can be instantiated
+      // in a few ways:
+
+      // ex1: var megaButton = new MegaButton();
+      // ex2: var megaButton = document.createElement('button', 'mega-button');
+      // ex3: <mega-button></mega-button>
+    }(window, document));
+    </script>
+  </body>
+</html>

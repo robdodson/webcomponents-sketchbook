@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Elements Basic</title>
+    <!-- 
+      To use Custom Elements make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+  </head>
+  <body>
+
+    <my-widget></my-widget>
+
+    <template id="widget-template">
+      <div>
+        <h1>I am a widget!</h1>
+      </div>
+    </template>
+
+    <script>
+    (function (window, document, undefined) {
+      // Make sure you extend an existing HTMLElement prototype
+      var WidgetProto = Object.create(HTMLElement.prototype);
+
+      // Setup optional lifecycle callbacks: createdCallback,
+      // enteredDocumentCallback, leftDocumentCallback and
+      // attributeChangedCallback
+      WidgetProto.createdCallback = function() {
+        // Create a ShadowDOM to hold our template content
+        var root = this.createShadowRoot();
+        var template = document.querySelector('#widget-template');
+
+        // Add the template to our Shadow DOM
+        root.appendChild(template.content.cloneNode(true));
+      };
+
+      // Register the custom element with the document
+      // Element names *must* contain a dash
+      var Widget = document.register('my-widget', { prototype: WidgetProto });
+      
+      // Export the constructor so others can use it
+      window.Widget = Widget;
+
+      // Now that the element is registered it can be instantiated
+      // in a few ways:
+
+      // ex1: var widget = new Widget();
+      // ex2: var widget = document.createElement('my-widget');
+      // ex3: <my-widget></my-widget>
+    }(window, document));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Templates Basic</title>
+  </head>
+  <body>
+
+    <template>
+      <h1>Hello World!</h1>
+      <img src="http://placekitten.com/g/200/300" alt="kittez!">
+    </template>
+
+    <script>
+    var template = document.querySelector('template');
+    document.body.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>

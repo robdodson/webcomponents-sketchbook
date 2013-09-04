@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Templates Img Src</title>
+  </head>
+  <body>
+
+    <template>
+      <h1>Do a Barrel Roll!</h1>
+      <img src="http://media3.giphy.com/media/L2UdIWuCRbUL6/original.gif">
+    </template>
+
+    <script>
+    var template = document.querySelector('template');
+    template.content.querySelector('img').src = 'http://media.giphy.com/media/8dTuHJeEMjxW8/giphy.gif';
+    document.body.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>

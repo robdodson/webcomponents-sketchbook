@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Templates and Shadow DOM</title>
+  </head>
+  <body>
+
+    <div id="host"></div>
+
+    <template>
+      <h1>I'm in the Shadow DOM. You can't touch me!</h1>
+      <img src="http://media1.giphy.com/media/y3Kd9Sx38HDXi/original.gif" alt="hmmm">
+    </template>
+
+    <script>
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+    var template = document.querySelector('template');
+    root.appendChild(template.content.cloneNode(true));
+    </script>
+  </body>
+</html>
