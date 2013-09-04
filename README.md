@@ -14,3 +14,9 @@ Many thanks go to Eric Bidelman and all the work he's done to help educate folks
 - [Shadow DOM: Styles](http://robdodson.me/blog/2013/08/28/shadow-dom-styles/)
 - [Shadow DOM: Styles (cont.)](http://robdodson.me/blog/2013/08/29/shadow-dom-styles-cont-dot/)
 - [Shadow DOM: JavaScript](http://robdodson.me/blog/2013/09/02/shadow-dom-javascript/)
+
+### Templates
+- [HTML's New Template Tag](http://www.html5rocks.com/en/tutorials/webcomponents/template/) by [@ebidel](http://twitter.com/ebidel)
+
+### Custom Elements
+- [Custom Elements](Defining New Elements in HTML) by [@ebidel](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
