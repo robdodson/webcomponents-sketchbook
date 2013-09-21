@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Imports with Custom Elements</title>
+    <!-- 
+      To use HTML Imports make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+
+    <style>
+    .container {
+      max-width: 1170px;
+      padding-top: 140px;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    div {
+      font-family: Georgia;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    moment-now,
+    moment-format,
+    moment-parse,
+    moment-from {
+      padding: 3px 6px;
+      background: tomato;
+      color: white;
+    }
+    </style>
+
+    <!-- Include moment.js so our import can use it -->
+    <script src="./bower_components/moment/moment.js"></script>
+    <link rel="import" href="./imports/moment.html">
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        Today is: <moment-now></moment-now>
+      </div>
+      <div>
+        Or to put it another way:
+        <moment-format tokens="MMMM Do YYYY, h:mm:ss a">
+          <moment-now></moment-now>
+        </moment-format>
+      </div>
+      <div>
+        Dec 25, 1995 becomes: <moment-parse>Dec 25, 1995</moment-parse>
+      </div>
+      <div>
+        Or just:
+        <moment-format tokens="dddd, MMMM Do">
+          <moment-parse>Dec 25, 1995</moment-parse>
+        </moment-format>
+      </div>
+      <div>
+        Btw, that was: 
+        <moment-from>
+          <moment-parse>Dec 25, 1995</moment-parse>
+          <moment-parse>Sep 13, 2013</moment-parse>
+        </moment-from>
+      </div>
+    </div>
+  </body>
+</html>

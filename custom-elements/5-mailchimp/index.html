@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Imports with Custom Elements</title>
+    <!-- 
+      To use HTML Imports make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+
+    <style>
+
+    .container {
+      max-width: 1170px;
+      padding-top: 140px;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    </style>
+
+    <link rel="import" href="./imports/mailchimp.html">
+  </head>
+  <body>
+    <div class="container">
+      <mc-signup url="http://robdodson.us7.list-manage.com/subscribe/post"
+                 u="5727aa0eb1ccbf4ae68284189"
+                 id="6719a28b56">
+      </mc-signup>
+    </div>
+  </body>
+</html>
