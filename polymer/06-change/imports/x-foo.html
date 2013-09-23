@@ -1,0 +1,16 @@
+<!-- All properties on Polymer elements can be watched for changes by implementing a propertyNameChanged handler. When the value of a watched property changes, the appropriate change handler is automatically invoked. -->
+
+<!-- http://www.polymer-project.org/polymer.html#change-watchers -->
+
+<polymer-element name="x-foo" attributes="awesome">
+  <template>
+    <p>I'm an x-foo. I'm pretty {{}}.</p>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      awesome: 'awesome',
+      awesomeChanged: function(oldVal) {
+      }
+    });
+  </script>
+</polymer-element>

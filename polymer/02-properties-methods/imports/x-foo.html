@@ -1,0 +1,16 @@
+<polymer-element name="x-foo">
+  <template>
+    <span>I'm <b>x-foo</b> and I got special powers.</span>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      created: function() {
+        console.log('x-foo all up in here!');
+      },
+      sayHello: function() {
+        alert('hello, world!');
+      },
+      unicorn: 'http://media3.giphy.com/media/L2UdIWuCRbUL6/giphy.gif'
+    });
+  </script>
+</polymer-element>

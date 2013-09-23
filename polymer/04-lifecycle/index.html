@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 1. Load Polymer -->
+    <script src="../lib/polymer.min.js"></script>
+    <!-- 2. Load a component -->
+    <link rel="import" href="./imports/x-foo.html">
+  </head>
+  <body>
+    <p>Peep the console</p>
+    <script>
+      window.addEventListener('WebComponentsReady', function() {
+        var foo = document.createElement('x-foo');
+        document.body.appendChild(foo);
+        foo.setAttribute('awesome', 'yup');
+        foo.setAttribute('awesome', 'you know it');
+        document.body.removeChild(foo);
+      });
+    </script>
+  </body>
+</html>

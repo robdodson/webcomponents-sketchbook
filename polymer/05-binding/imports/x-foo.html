@@ -1,0 +1,22 @@
+<polymer-element name="x-foo">
+  <template>
+    <div>
+      <p>My name is: {{ name }}</p>
+      <p>I am a {{ occupation }}</p>
+      <p>I am a {{ otherOccupation }}</p>
+      <p>I have {{ inventory }}</p>
+    </div>
+    <div style="font-family: {{ fontFamily }}">
+      Chillaxin'
+    </div>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      name: 'x-foo',
+      occupation: 'baller',
+      otherOccupation: 'shot caller',
+      inventory: ['20" blades', 'an impala'],
+      fontFamily: 'cursive'
+    });
+  </script>
+</polymer-element>

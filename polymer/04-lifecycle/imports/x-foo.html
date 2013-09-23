@@ -1,0 +1,21 @@
+<polymer-element name="x-foo">
+  <template>
+    <span>Hello, World!</span>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      created: function() {
+        console.log('x-foo lives!');
+      },
+      enteredView: function() {
+        console.log('x-foo has entered the buildling.');
+      },
+      leftView: function() {
+        console.log('x-foo has left the building.');
+      },
+      attributeChanged: function(attrName, oldVal, newVal) {
+        console.log(attrName, 'was', oldVal, ', is now', newVal);
+      }
+    });
+  </script>
+</polymer-element>

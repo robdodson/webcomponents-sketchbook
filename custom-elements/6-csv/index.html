@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Imports with Custom Elements</title>
+    <!-- 
+      To use HTML Imports make sure you've enabled the following
+      in about:flags.
+
+      √ Experimental Web Platform features
+      √ Experimental JavaScript
+      √ HTML Imports
+     -->
+
+    <style>
+
+    .container {
+      max-width: 1170px;
+      padding-top: 140px;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    </style>
+
+    <!-- <link rel="import" href="./imports/csv.html"> -->
+  </head>
+  <body>
+    <div class="container">
+      <script>
+      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+
+      function onInitFs(fs) {
+        console.log('Opened file system: ' + fs.name);
+      }
+
+      function errorHandler() {
+        console.log(arguments);
+      }
+
+      window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
+      </script>
+    </div>
+  </body>
+</html>

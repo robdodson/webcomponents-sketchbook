@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Load Polymer -->
+    <script src="../bower_components/polymer/polymer.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Define the polymer element -->
+    <polymer-element name="tk-element">
+      <template>
+        <span>I'm <b>tk-element</b>. This is my Shadow DOM.</span>
+      </template>
+      <script>Polymer('tk-element');</script>
+    </polymer-element>
+
+    <!--
+      Wait for the WebComponentsReady event to
+      use document.createElement.
+      Polymer elements are registered asynchronously.
+    -->
+    <script>
+      window.addEventListener('WebComponentsReady', function() {
+        var tk = document.createElement('tk-element');
+        document.body.appendChild(tk);
+      });
+    </script>
+  </body>
+</html>

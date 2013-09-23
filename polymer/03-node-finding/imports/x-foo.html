@@ -1,0 +1,18 @@
+<polymer-element name="x-foo">
+  <template>
+    <div>
+      <p>My name is: <span id="name"></span></p>
+      <p id="likes"></p>
+      <img id="snapshot" src="">
+    </div>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      created: function() {
+        this.$.name.textContent = 'x-foo';
+        this.$.likes.textContent = 'I likes to dance.';
+        this.$.snapshot.src = 'http://media0.giphy.com/media/13p77tfexyLtx6/giphy.gif';
+      }
+    });
+  </script>
+</polymer-element>
