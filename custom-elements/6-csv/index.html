@@ -28,19 +28,23 @@
   </head>
   <body>
     <div class="container">
-      <script>
-      window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-
-      function onInitFs(fs) {
-        console.log('Opened file system: ' + fs.name);
-      }
-
-      function errorHandler() {
-        console.log(arguments);
-      }
-
-      window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, onInitFs, errorHandler);
-      </script>
+      <input type="file" id="upload">
+      <p id="data"></p>
     </div>
+    <script>
+      function handleFileSelect(e) {
+        var file = e.target.files[0]; // FileList object
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var result = e.target.result;
+          document.getElementById('data').textContent = result;
+        };
+
+        reader.readAsText(file);
+      }
+
+      document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+    </script>
   </body>
 </html>

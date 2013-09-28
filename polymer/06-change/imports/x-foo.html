@@ -2,14 +2,18 @@
 
 <!-- http://www.polymer-project.org/polymer.html#change-watchers -->
 
-<polymer-element name="x-foo" attributes="awesome">
+<polymer-element name="x-foo" attributes="emotion">
   <template>
-    <p>I'm an x-foo. I'm pretty {{}}.</p>
+    <p>I'm an x-foo.</p>
+    <p>I was feeling {{ oldEmotion }}</p>
+    <p>Now I'm feeling {{ emotion }}</p>
   </template>
   <script>
     Polymer('x-foo', {
-      awesome: 'awesome',
-      awesomeChanged: function(oldVal) {
+      oldEmotion: '',
+      emotion: '',
+      emotionChanged: function(oldVal) {
+        this.oldEmotion = oldVal;
       }
     });
   </script>

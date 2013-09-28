@@ -1,0 +1,23 @@
+<polymer-element name="x-foo">
+  <template>
+    <div>
+      <p>My name is: {{ name }}</p>
+      <p>I am {{ age }} years old.</p>
+      <p>My favorite color is
+        <span style="background: {{ color }}">{{ color }}</span>
+      </p>
+    </div>
+    <div>
+      <input type="text" value="{{ name }}">
+      <input type="range" value="{{ age }}">
+      <input type="text" value="{{ color }}">
+    </div>
+  </template>
+  <script>
+    Polymer('x-foo', {
+      name: 'Rob',
+      age: 29,
+      color: 'Tomato'
+    });
+  </script>
+</polymer-element>

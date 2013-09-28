@@ -8,6 +8,19 @@
   </head>
   <body>
     <!-- 3. Declare the component by its tag. -->
-    <x-foo awesome="whatever"></x-foo>
+    <x-foo emotion="bummed"></x-foo>
+
+    <button onclick="makeHappy();">Make Happy</button>
+    <button onclick="makeSad();">Make Sad</button>
+
+    <script>
+      function makeHappy() {
+        document.querySelector('x-foo').setAttribute('emotion', 'awesome');
+      }
+
+      function makeSad() {
+        document.querySelector('x-foo').setAttribute('emotion', 'bummed');
+      }
+    </script>
   </body>
 </html>

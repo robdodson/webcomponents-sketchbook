@@ -16,35 +16,6 @@
     // attributeChangedCallback
     CSVProto.createdCallback = function() {
       var root = this.createShadowRoot();
-
-      function onInitFs(fs) {
-
-        fs.root.getFile('../log.txt', {}, function(fileEntry) {
-
-          // Get a File object representing the file,
-          // then use FileReader to read its contents.
-          fileEntry.file(function(file) {
-             var reader = new FileReader();
-
-             reader.onloadend = function(e) {
-               var txtArea = document.createElement('textarea');
-               txtArea.value = this.result;
-               root.appendChild(txtArea);
-             };
-
-             reader.readAsText(file);
-          }, errorHandler);
-
-        }, errorHandler);
-
-      }
-
-      function errorHandler() {
-        console.log('error');
-        console.log(arguments);
-      }
-
-      window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
     };
 
     var CSV = thatDoc.register('file-csv', { prototype: CSVProto });

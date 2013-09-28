@@ -1,0 +1,40 @@
+<script>
+  (function (window, document, undefined) {
+    // Make sure you extend an existing HTMLElement prototype
+    var GoogleAnalyticsProto = Object.create(HTMLElement.prototype);
+
+    // Setup optional lifecycle callbacks: createdCallback,
+    // enteredDocumentCallback, leftDocumentCallback and
+    // attributeChangedCallback
+    GoogleAnalyticsProto.createdCallback = function() {
+      var account = this.getAttribute('account');
+      var domain = this.getAttribute('domain');
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', account]);
+
+      if (domain === 'localhost') {
+        // Set domain to none to debug on localhost
+        _gaq.push(['_setDomainName', 'none']);
+      } else {
+        _gaq.push(['_setDomainName', domain]);
+      }
+      
+      _gaq.push(['_trackPageview']);
+
+      // Export the _gaq object
+      window._gaq = _gaq;
+
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var root = this.createShadowRoot();
+      root.appendChild(ga);
+    };
+
+    var GoogleAnalytics = document.register('g-analytics', { prototype: GoogleAnalyticsProto });
+
+  }(window, document));
+</script>
