@@ -1,0 +1,195 @@
+<!-- Pie -->
+
+<polymer-element name="chart-pie" attributes="values colors">
+  <template>
+    <canvas id="canvas" width="200" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-pie", {
+      created: function () {
+        this.data = [];
+        this.values.forEach(function (val, i) {
+          this.data.push({ color: this.colors[i], value: val });
+        }, this);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Pie(this.data);
+      },
+      values: [30, 50, 100, 40, 120],
+      colors: ["#EF9283", "#FCDFA5", "#B8E2BA", "#C2B6A0", "#FECD81"]
+    });
+  </script>
+</polymer-element>
+
+<!-- Doughnut -->
+
+<polymer-element name="chart-doughnut" attributes="values colors">
+  <template>
+    <canvas id="canvas" width="200" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-doughnut", {
+      created: function () {
+        this.data = [];
+        this.values.forEach(function (val, i) {
+          this.data.push({ color: this.colors[i], value: val });
+        }, this);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Doughnut(this.data);
+      },
+      values: [30, 50, 100, 40, 120],
+      colors: ["#EF9283", "#FCDFA5", "#B8E2BA", "#C2B6A0", "#FECD81"]
+    });
+  </script>
+</polymer-element>
+
+<!-- Polar Area -->
+
+<polymer-element name="chart-polar-area" attributes="values colors">
+  <template>
+    <canvas id="canvas" width="200" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-polar-area", {
+      created: function () {
+        this.data = [];
+        this.values.forEach(function (val, i) {
+          this.data.push({ color: this.colors[i], value: val });
+        }, this);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).PolarArea(this.data);
+      },
+      values: [30, 90, 18, 58, 82],
+      colors: ["#FCDFA5", "#B8E2BA", "#C2B6A0", "#FECD81", "#EF9283"]
+    });
+  </script>
+</polymer-element>
+
+<!-- Line -->
+
+<polymer-element name="chart-line" attributes="labels values colors">
+  <template>
+    <canvas id="canvas" width="400" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-line", {
+      created: function () {
+        this.datasets = [];
+        this.values.forEach(function (val, i) {
+          this.datasets.push({
+            fillColor:    "rgba(" + this.colors[i] + ",0.5)",
+            strokeColor:  "rgba(" + this.colors[i] + ",1)",
+            pointColor:   "rgba(" + this.colors[i] + ",1)",
+            pointStrokeColor: "#fff",
+            data: this.values[i]
+          });
+        }, this);
+
+        this.data = { labels: this.labels, datasets: this.datasets };
+
+        console.log(this.data);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Line(this.data);
+      },
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      values: [
+        [65,59,90,81,56,55,40],
+        [28,48,40,19,96,27,100]
+      ],
+      colors: [
+        "239,146,131",
+        "252,223,165",
+        "184,226,186",
+        "194,182,160",
+        "254,205,129"
+      ]
+    });
+  </script>
+</polymer-element>
+
+<!-- Bar -->
+
+<polymer-element name="chart-bar" attributes="labels values colors">
+  <template>
+    <canvas id="canvas" width="450" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-bar", {
+      created: function () {
+        this.datasets = [];
+        this.values.forEach(function (val, i) {
+          this.datasets.push({
+            fillColor:    "rgba(" + this.colors[i] + ",0.5)",
+            strokeColor:  "rgba(" + this.colors[i] + ",1)",
+            data: this.values[i]
+          });
+        }, this);
+
+        this.data = { labels: this.labels, datasets: this.datasets };
+
+        console.log(this.data);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Bar(this.data);
+      },
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      values: [
+        [65,59,90,81,56,55,40],
+        [28,48,40,19,96,27,100]
+      ],
+      colors: [
+        "239,146,131",
+        "252,223,165",
+        "184,226,186",
+        "194,182,160",
+        "254,205,129"
+      ]
+    });
+  </script>
+</polymer-element>
+
+<!-- Radar -->
+
+<polymer-element name="chart-radar" attributes="labels values colors">
+  <template>
+    <canvas id="canvas" width="200" height="200"></canvas>
+  </template>
+  <script>
+    Polymer("chart-radar", {
+      created: function () {
+        this.datasets = [];
+        this.values.forEach(function (val, i) {
+          this.datasets.push({
+            fillColor:    "rgba(" + this.colors[i] + ",0.5)",
+            strokeColor:  "rgba(" + this.colors[i] + ",1)",
+            pointColor:   "rgba(" + this.colors[i] + ",1)",
+            pointStrokeColor: "#fff",
+            data: this.values[i]
+          });
+        }, this);
+
+        this.data = { labels: this.labels, datasets: this.datasets };
+
+        console.log(this.data);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Radar(this.data);
+      },
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      values: [
+        [65,59,90,81,56,55,40],
+        [28,48,40,19,96,27,100]
+      ],
+      colors: [
+        "239,146,131",
+        "252,223,165",
+        "184,226,186",
+        "194,182,160",
+        "254,205,129"
+      ]
+    });
+  </script>
+</polymer-element>
