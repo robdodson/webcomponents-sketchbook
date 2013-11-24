@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Load Polymer -->
+    <script src="../lib/polymer.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Define the polymer element -->
+    <polymer-element name="my-widget" noscript>
+      <template>
+        <link rel="import" href="./widget-css.html"> <!-- works but isn't applied -->
+        <link rel="stylesheet" href="./widget.css"> <!-- works! -->
+        <div>
+          <content></content>
+        </div>
+        <link rel="import" href="./widget-js.html"> <!-- works but should probably be outside template -->
+        <script src="./widget.js"></script> <!-- works! -->
+      </template>
+    </polymer-element>
+
+    <!-- Ready to rock -->
+    <my-widget>
+      <h1>I am an awesome widget.</h1>
+      <p>Peep my styles, yo!</p>
+    </my-widget>
+
+  </body>
+</html>

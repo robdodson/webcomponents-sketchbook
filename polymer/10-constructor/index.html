@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Load Polymer -->
+    <script src="../lib/polymer.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Define the polymer element -->
+    <polymer-element name="my-element" constructor="MyElement">
+      <template>
+        Hello, I'm a Polymer element
+      </template>
+      <script>Polymer("my-element");</script>
+    </polymer-element>
+
+    <!-- Ready to rock -->
+    <my-element></my-element>
+
+    <script>
+      console.log(MyElement);
+    </script>
+  </body>
+</html>
