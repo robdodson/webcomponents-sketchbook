@@ -5,37 +5,38 @@
     <title>Shadow DOM Styling By Host Type</title>
   </head>
   <body>
-    <p>My Paragraph</p>
-    <div>My Div</div>
-    <button>My Button</button>
-    
+    <div id="para"><p>My Paragraph</p></div>
+    <div id="div"><div>My Div</div></div>
+    <div id="button"><button>My Button</button></div>
+
     <!-- Our template -->
     <template class="shadow-template">
       <style>
-        p:host {
+        :host {
+          font-size: 24px;
+        }
+
+        ::content p {
           color: blue;
         }
 
-        div:host {
+        ::content div {
           color: green;
         }
 
-        button:host {
+        ::content button {
           color: red;
         }
-
-        *:host {
-          font-size: 24px;
-        }
       </style>
-      <content select=""></content>
+      <content></content>
     </template>
 
     <script>
       // Create a shadow root for each element
-      var root1 = document.querySelector('p').createShadowRoot();
-      var root2 = document.querySelector('div').createShadowRoot();
-      var root3 = document.querySelector('button').createShadowRoot();
+      var root1 = document.querySelector('#para').createShadowRoot();
+      var root2 = document.querySelector('#div').createShadowRoot();
+      var root3 = document.querySelector('#button').createShadowRoot();
+
 
       // We'll use the same template for each shadow root
       var template = document.querySelector('.shadow-template');
