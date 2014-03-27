@@ -6,13 +6,13 @@
   </head>
   <body>
     <div class="serious">
-      <p class="serious-widget">
+      <p>
         I am super serious, guys.
       </p>
     </div>
 
     <div class="playful">
-      <p class="playful-widget">
+      <p>
         Pretty little clouds...
       </p>
     </div>
@@ -43,8 +43,8 @@
       <content></content>
     </template>
     <script>
-      var root1 = document.querySelector('.serious-widget').createShadowRoot();
-      var root2 = document.querySelector('.playful-widget').createShadowRoot();
+      var root1 = document.querySelector('.serious').createShadowRoot();
+      var root2 = document.querySelector('.playful').createShadowRoot();
       var template = document.querySelector('.widget-template');
       root1.appendChild(template.content.cloneNode(true));
       root2.appendChild(template.content.cloneNode(true));
